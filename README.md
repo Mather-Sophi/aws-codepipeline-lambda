@@ -4,11 +4,22 @@ Creates a pipeline that generates a lambda zip archive and updates the existing 
 ## v1.4 Note
 The account that owns the guthub token must have admin access on the repo in order to generate a github webhook 
 
+## v1.6 Note
+The secrets manager environment variable `DS_DEPLOY_GITHUB_TOKEN_SECRETS_ID` is exposed via codebuild
+
+You can add the 1 line to the beginning of your `build` phase commands in `buildspec.yml` to assign the token's secret value to local variable `GITHUB_TOKEN`.
+
+```yml
+  build:
+    commands:
+      - export GITHUB_TOKEN=${DS_DEPLOY_GITHUB_TOKEN_SECRETS_ID}
+```
+
 ## Usage
 
 ```hcl
 module "lambda_pipeline" {
-  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.5"
+  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.6"
 
   name               = app-name
   function_name      = lambda-function-name
