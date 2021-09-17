@@ -15,12 +15,6 @@ You can add the 1 line to the beginning of your `build` phase commands in `build
       - export GITHUB_TOKEN=${REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID}
 ```
 
-The Github oauth access token belongs to Github user `ds-deploy-git-user`, who is a member of the Github team `tgam-data-science`.
-To grant the Github user the ability to clone any repository, the repository must grant Read access to the `tgam-data-science` team.
-See the example below.
-
-![Repository Manage Access](./docs/Github_Repository_Manage_Access.png)
-
 ## Usage
 
 ```hcl
