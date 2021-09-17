@@ -5,15 +5,21 @@ Creates a pipeline that generates a lambda zip archive and updates the existing 
 The account that owns the guthub token must have admin access on the repo in order to generate a github webhook 
 
 ## v1.6 Note
-The secrets manager environment variable `DS_DEPLOY_GITHUB_TOKEN_SECRETS_ID` is exposed via codebuild
+The secrets manager environment variable `REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID` is exposed via codebuild
 
 You can add the 1 line to the beginning of your `build` phase commands in `buildspec.yml` to assign the token's secret value to local variable `GITHUB_TOKEN`.
 
 ```yml
   build:
     commands:
-      - export GITHUB_TOKEN=${DS_DEPLOY_GITHUB_TOKEN_SECRETS_ID}
+      - export GITHUB_TOKEN=${REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID}
 ```
+
+The Github oauth access token belongs to Github user `ds-deploy-git-user`, who is a member of the Github team `tgam-data-science`.
+To grant the Github user the ability to clone any repository, the repository must grant Read access to the `tgam-data-science` team.
+See the example below.
+
+![Repository Manage Access](./docs/Github_Repository_Manage_Access.png)
 
 ## Usage
 
@@ -47,6 +53,8 @@ module "lambda_pipeline" {
 | function\_alias | The name of the Lambda function alias that gets passed to the UserParameters data in the deploy stage | string | `"live"` | no |
 | deploy\_function\_name | The name of the Lambda function in the account that will update the function code | string | `"CodepipelineDeploy"` | no |
 | tags | A mapping of tags to assign to the resource | map | `{}` | no |
+| central\_account\_github\_token\_aws\_secret\_arn | \(Required\) The repo access Github token AWS secret ARN in the ds-ml-shared-svcs-prod AWS account | string | n/a | yes |
+| central\_account\_github\_token\_aws\_kms\_cmk\_arn | \(Required\) The repo access Github token AWS KMS customer managed key ARN in the ds-ml-shared-svcs-prod AWS account | string | n/a | yes |
 
 ## Outputs
 
