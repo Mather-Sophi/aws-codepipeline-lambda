@@ -35,6 +35,8 @@ module "lambda_pipeline" {
   tags = {
     Environment = var.environment
   }
+  central_account_github_token_aws_secret_arn = central-account-github-token-aws-secret-arn
+  central_account_github_token_aws_kms_cmk_arn = central-account-github-token-aws-kms-cmk-arn
 }
 ```
 
