@@ -49,8 +49,8 @@ module "lambda_pipeline" {
 | function\_alias | The name of the Lambda function alias that gets passed to the UserParameters data in the deploy stage | string | `"live"` | no |
 | deploy\_function\_name | The name of the Lambda function in the account that will update the function code | string | `"CodepipelineDeploy"` | no |
 | tags | A mapping of tags to assign to the resource | map | `{}` | no |
-| central\_account\_github\_token\_aws\_secret\_arn | \(Required\) The repo access Github token AWS secret ARN in the ds-ml-shared-svcs-prod AWS account | string | n/a | yes |
-| central\_account\_github\_token\_aws\_kms\_cmk\_arn | \(Required\) The repo access Github token AWS KMS customer managed key ARN in the ds-ml-shared-svcs-prod AWS account | string | n/a | yes |
+| central\_account\_github\_token\_aws\_secret\_arn | \(Required\) The repo access Github token AWS secret ARN in the central AWS account | string | n/a | yes |
+| central\_account\_github\_token\_aws\_kms\_cmk\_arn | \(Required\) The repo access Github token AWS KMS customer managed key ARN in the central AWS account | string | n/a | yes |
 
 ## Outputs
 
