@@ -14,12 +14,12 @@ locals {
 module "codebuild_project" {
   source = "github.com/globeandmail/aws-codebuild-project?ref=1.7"
 
-  name            = var.name
-  deploy_type     = "lambda"
-  tags            = var.tags
-  privileged_mode = var.privileged_mode
-  buildspec       = var.buildspec
-  central_account_github_token_aws_secret_arn = var.central_account_github_token_aws_secret_arn
+  name                                         = var.name
+  deploy_type                                  = "lambda"
+  tags                                         = var.tags
+  privileged_mode                              = var.privileged_mode
+  buildspec                                    = var.buildspec
+  central_account_github_token_aws_secret_arn  = var.central_account_github_token_aws_secret_arn
   central_account_github_token_aws_kms_cmk_arn = var.central_account_github_token_aws_kms_cmk_arn
 }
 
@@ -150,6 +150,8 @@ resource "aws_codepipeline" "pipeline" {
 }
 
 resource "aws_codepipeline_webhook" "github" {
+  # Only create the webhook if create_github_webhook is set to true
+  count           = var.create_github_webhook ? 1 : 0
   name            = var.name
   authentication  = "GITHUB_HMAC"
   target_action   = "Source"
@@ -168,12 +170,10 @@ resource "aws_codepipeline_webhook" "github" {
 resource "github_repository_webhook" "aws_codepipeline" {
   repository = var.github_repo_name
 
-  # name = "web"
-
   configuration {
-    url          = aws_codepipeline_webhook.github.url
+    url          = aws_codepipeline_webhook.github[0].url
     content_type = "json"
-    secret = var.github_oauth_token
+    secret       = var.github_oauth_token
   }
 
   events = ["push"]
