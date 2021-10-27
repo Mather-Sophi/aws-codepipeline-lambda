@@ -168,6 +168,7 @@ resource "aws_codepipeline_webhook" "github" {
 }
 
 resource "github_repository_webhook" "aws_codepipeline" {
+  count           = var.create_github_webhook == true ? 1 : 0
   repository = var.github_repo_name
 
   configuration {
