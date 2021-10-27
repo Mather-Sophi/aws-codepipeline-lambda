@@ -19,7 +19,7 @@ You can add the 1 line to the beginning of your `build` phase commands in `build
 
 ```hcl
 module "lambda_pipeline" {
-  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.6"
+  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.7"
 
   name               = app-name
   function_name      = lambda-function-name
@@ -51,6 +51,7 @@ module "lambda_pipeline" {
 | tags | A mapping of tags to assign to the resource | map | `{}` | no |
 | central\_account\_github\_token\_aws\_secret\_arn | \(Required\) The repo access Github token AWS secret ARN in the central AWS account | string | n/a | yes |
 | central\_account\_github\_token\_aws\_kms\_cmk\_arn | \(Required\) The repo access Github token AWS KMS customer managed key ARN in the central AWS account | string | n/a | yes |
+| create\_github\_webhook | Create the github webhook that triggers codepipeline | bool | `"true"` | no |
 
 ## Outputs
 
