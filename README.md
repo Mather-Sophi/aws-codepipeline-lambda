@@ -9,6 +9,10 @@ The secrets manager environment variable `REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID` i
 
 You can add the 1 line to the beginning of your `build` phase commands in `buildspec.yml` to assign the token's secret value to local variable `GITHUB_TOKEN`.
 
+## v1.8 Note
+Removes the github provider from main.tf and is moved to the required_providers stanza in versions.tf
+
+
 ```yml
   build:
     commands:
