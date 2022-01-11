@@ -15,7 +15,7 @@ You can add the 1 line to the beginning of your `build` phase commands in `build
       - export GITHUB_TOKEN=${REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID}
 ```
 
-## v1.8 Note
+## v1.9 Note
 If `use_repo_access_github_token` is set to `true`, the environment variable `REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID` is exposed via codebuild.
 Usage remains the same as v1.6.
 If `s3_block_public_access` is set to `true`, the block public access setting for the artifact bucket is enabled.
@@ -24,7 +24,7 @@ If `s3_block_public_access` is set to `true`, the block public access setting fo
 
 ```hcl
 module "lambda_pipeline" {
-  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.8"
+  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.9"
 
   name               = app-name
   function_name      = lambda-function-name
