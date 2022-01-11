@@ -12,7 +12,7 @@ locals {
 }
 
 module "codebuild_project" {
-  source = "github.com/globeandmail/aws-codebuild-project?ref=AHP-917"
+  source = "github.com/globeandmail/aws-codebuild-project?ref=1.8"
 
   name                                         = var.name
   deploy_type                                  = "lambda"
