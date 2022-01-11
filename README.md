@@ -5,7 +5,7 @@ Creates a pipeline that generates a lambda zip archive and updates the existing 
 The account that owns the guthub token must have admin access on the repo in order to generate a github webhook 
 
 ## v1.6 Note
-The secrets manager environment variable `REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID` is exposed via codebuild
+The secrets manager environment variable `REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID` is exposed via codebuild.
 
 You can add the 1 line to the beginning of your `build` phase commands in `buildspec.yml` to assign the token's secret value to local variable `GITHUB_TOKEN`.
 
@@ -37,6 +37,7 @@ module "lambda_pipeline" {
   use_repo_access_github_token = true
   svcs_account_github_token_aws_secret_arn = svcs-account-github-token-aws-secret-arn
   svcs_account_github_token_aws_kms_cmk_arn = svcs-account-github-token-aws-kms-cmk-arn
+  s3_block_public_access = true
 }
 ```
 
