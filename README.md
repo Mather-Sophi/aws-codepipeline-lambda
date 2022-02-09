@@ -28,7 +28,7 @@ If `s3_block_public_access` is set to `true`, the block public access setting fo
 
 ```hcl
 module "lambda_pipeline" {
-  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.9"
+  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.10"
 
   name               = app-name
   function_name      = lambda-function-name
