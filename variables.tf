@@ -101,7 +101,7 @@ variable "create_github_webhook" {
 }
 
 variable "s3_block_public_access" {
-  type = bool
+  type        = bool
   description = "(Optional) Enable the S3 block public access setting for the artifact bucket."
-  default = false
+  default     = false
 }

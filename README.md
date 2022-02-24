@@ -19,6 +19,9 @@ Removes the github provider from main.tf and is moved to the required_providers 
       - export GITHUB_TOKEN=${REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID}
 ```
 
+##2.0 Note
+Uses aws-codebuild-project v2.0 which requires AWS provider 4.x
+
 ## v1.9 Note
 If `use_repo_access_github_token` is set to `true`, the environment variable `REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID` is exposed via codebuild.
 Usage remains the same as v1.6.
