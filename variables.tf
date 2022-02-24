@@ -27,7 +27,7 @@ variable "github_oauth_token" {
 variable "codebuild_image" {
   type        = string
   description = "The codebuild image to use"
-  default     = null
+  default     = ""
 }
 
 variable "buildspec" {
