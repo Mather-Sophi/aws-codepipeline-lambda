@@ -27,7 +27,7 @@ variable "github_oauth_token" {
 variable "codebuild_image" {
   type        = string
   description = "The codebuild image to use"
-  default     = ""
+  default     = "aws/codebuild/amazonlinux2-x86_64-standard:1.0"
 }
 
 variable "buildspec" {

@@ -19,7 +19,7 @@ Removes the github provider from main.tf and is moved to the required_providers 
       - export GITHUB_TOKEN=${REPO_ACCESS_GITHUB_TOKEN_SECRETS_ID}
 ```
 
-##2.0 Note
+##2.x Note
 Uses aws-codebuild-project v2.0 which requires AWS provider 4.x
 
 ## v1.9 Note
@@ -31,7 +31,7 @@ If `s3_block_public_access` is set to `true`, the block public access setting fo
 
 ```hcl
 module "lambda_pipeline" {
-  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.10"
+  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=2.2"
 
   name               = app-name
   function_name      = lambda-function-name
