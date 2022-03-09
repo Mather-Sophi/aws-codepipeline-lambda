@@ -97,7 +97,7 @@ variable "svcs_account_github_token_aws_kms_cmk_arn" {
 variable "create_github_webhook" {
   type        = bool
   description = "Create the github webhook that triggers codepipeline. Defaults to true"
-  default     = true
+  default     = false
 }
 
 variable "s3_block_public_access" {
