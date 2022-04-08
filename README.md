@@ -19,7 +19,7 @@ You can add the 1 line to the beginning of your `build` phase commands in `build
 
 ```hcl
 module "lambda_pipeline" {
-  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.7"
+  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.7.1"
 
   name               = app-name
   function_name      = lambda-function-name
