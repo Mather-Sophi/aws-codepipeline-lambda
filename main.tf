@@ -7,7 +7,7 @@ locals {
 }
 
 module "codebuild_project" {
-  source = "github.com/globeandmail/aws-codebuild-project?ref=1.8"
+  source = "github.com/Mather-Sophi/aws-codebuild-project?ref=OP-4430"
 
   name                                      = var.name
   deploy_type                               = "lambda"
