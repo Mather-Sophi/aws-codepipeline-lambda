@@ -28,12 +28,13 @@ If `s3_block_public_access` is set to `true`, the block public access setting fo
 
 ```hcl
 module "lambda_pipeline" {
-  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=1.10"
+  source = "github.com/globeandmail/aws-codepipeline-lambda?ref=2.3"
 
   name               = app-name
   function_name      = lambda-function-name
   github_repo_owner  = github-account-name
   github_repo_name   = github-repo-name
+  github_branch_name = github-branch-name
   github_oauth_token = data.aws_ssm_parameter.github_token.value
   tags = {
     Environment = var.environment
