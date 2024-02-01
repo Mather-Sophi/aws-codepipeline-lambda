@@ -7,7 +7,7 @@ locals {
 }
 
 module "codebuild_project" {
-  source = "github.com/Mather-Sophi/aws-codebuild-project?ref=OP-4430"
+  source = "github.com/Mather-Sophi/aws-codebuild-project?ref=2.2"
 
   name                                      = var.name
   deploy_type                               = "lambda"
@@ -16,7 +16,7 @@ module "codebuild_project" {
   buildspec                                 = var.buildspec
   use_repo_access_github_token              = var.use_repo_access_github_token
   svcs_account_github_token_aws_secret_arn  = var.svcs_account_github_token_aws_secret_arn
-  svcs_account_aws_kms_cmk_arn              = var.svcs_account_github_token_aws_kms_cmk_arn
+  svcs_account_aws_kms_cmk_arn              = var.svcs_account_aws_kms_cmk_arn
   s3_block_public_access                    = var.s3_block_public_access
   codebuild_image                           = var.codebuild_image
 }

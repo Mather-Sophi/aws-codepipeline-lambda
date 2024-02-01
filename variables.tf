@@ -84,12 +84,12 @@ variable "svcs_account_github_token_aws_secret_arn" {
   default     = null
 }
 
-variable "svcs_account_github_token_aws_kms_cmk_arn" {
+variable "svcs_account_aws_kms_cmk_arn" {
   type        = string
   description = <<EOT
-                (Optional) The us-east-1 region AWS KMS customer managed key ARN for encrypting the repo access Github token AWS secret.
+                (Optional) The us-east-1 region AWS KMS customer managed key ARN for encrypting all AWS secrets.
                 The key is created in the shared service account.
-                Required if var.use_repo_access_github_token is true.
+                Required if var.use_repo_access_github_token or var.use_sysdig_api_token is true.
                 EOT
   default     = null
 }
